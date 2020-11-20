@@ -2,10 +2,11 @@
 This is a collection of greedy algorithms for sparse recovery.
 
 In compressed sensing, one of the main objectives is to solve the basis pursuit problem
->
+'
 $$
 \min_{x \in \mathds{R}^N} \|x \|_1 \text{subject to} y = A\hat{x} \label{eq:basisPur}
 $$
+'
 
 given $y\in \mathds{R}^m$ and $A\in \mathds{R}^{m \times N}$ where $m \ll N$. Under appropriate conditions on the measurement matrix $A$ and the underlying data $\hat{x}$, this optimization is known to have the same optimum as the sparse recovery problem
 >
