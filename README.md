@@ -1,5 +1,5 @@
 # greedy_CS
-This is a collection of greedy algorithms for sparse recovery.
+This repository offers a collection of greedy algorithms for sparse recovery and several scripts to evaluate their empirical performance.
 
 In compressed sensing, one of the main objectives is to solve the basis pursuit problem
 
@@ -13,7 +13,7 @@ where $\|\cdot\|_0:=|\{i: x_i \neq 0\}|$ denotes the 'zero norm' of a vector.
 
 Although \eqref{eq:basisPur} is convex, one often wants to avoid to use the usual general-purpose solvers due to the typically large sizes of $m,N$ encountered in many applications. Even though there are more efficient, $\ell_1$-tailored solvers available, oftentimes one instead employs the so-called _greedy algorithms_ which typically take $\mathcal{O}(\|\hat{x}\|_0)$ iterations to return a good estimate of $\hat{x}$. Crucially, these algorithms exploit the fact that $A^\top Ax\approx x$ under appropriate conditions on $A$ and $x$.
 
-Usually the ground truth $\hat{x}$ is not exactly sparse but _compressible_, which means that only a few entries of $\hat{x}$ are significant. For many greedy algorithms, there exists theory that guarantees that stable recovery is possible for the sparse recovery by solving the regularized problem
+Usually the ground truth $\hat{x}$ is not exactly sparse but _compressible_, which means that only a few entries of $\hat{x}$ are significant. For many greedy algorithms, there exist results that guarantee that stable recovery is possible when solving the regularized problem
 
 >$$ \min_{x \in \mathds{R}^N} \|x \|_1 \text{subject to} \|y-A\hat{x}\|\leq \eta $$
 
@@ -24,6 +24,14 @@ The performance of the different greedy algorithms can be evaluated by running t
 ## List of algorithms
 
 * `ANM` (_Atomic Norm Minimization_), see [[C+14]](https://ieeexplore.ieee.org/abstract/document/6998075).
+* `COSAMP` (_ _), see .
+* `CSMPSP` (_ _), see .
+* `GOMP` (_ _), see .
+* `NIHT` (_ _), see .
+* `OMP` (_ _), see .
+* `ROMP` (_ _), see .
+* `STOMP` (_ _), see .
+
 
 ## Examples and Usage
 The above listed algorithms can be used as stand-alone. For the correct usage, including the input and output of the individual algorithms, refer to the comments provided in the respective source codes.
