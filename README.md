@@ -3,26 +3,21 @@ This is a collection of greedy algorithms for sparse recovery.
 
 In compressed sensing, one of the main objectives is to solve the basis pursuit problem
 
->$$\min_{x \in \mathds{R}^N} \|x \|_1 \text{subject to} y = A\hat{x} \label{eq:basisPur}$$
-
+>$$ \min_{x \in \mathds{R}^N} \|x \|_1 \text{subject to} y = A\hat{x} \label{eq:basisPur} $$
 
 given $y\in \mathds{R}^m$ and $A\in \mathds{R}^{m \times N}$ where $m \ll N$. Under appropriate conditions on the measurement matrix $A$ and the underlying data $\hat{x}$, this optimization is known to have the same optimum as the sparse recovery problem
->
-$$
-\min_{x \in \mathds{R}^N} \|x \|_0 \text{subject to} y = A\hat{x}
-$$
+
+>$$ \min_{x \in \mathds{R}^N} \|x \|_0 \text{subject to} y = A\hat{x} $$
 
 where $\|\cdot\|_0:=|\{i: x_i \neq 0\}|$ denotes the 'zero norm' of a vector.
 
 Although \eqref{eq:basisPur} is convex, one often wants to avoid to use the usual general-purpose solvers due to the typically large sizes of $m,N$ encountered in many applications. Even though there are more efficient, $\ell_1$-tailored solvers available, oftentimes one instead employs the so-called _greedy algorithms_ which typically take $\mathcal{O}(\|\hat{x}\|_0)$ iterations to return a good estimate of $\hat{x}$. Crucially, these algorithms exploit the fact that $A^\top Ax\approx x$ under appropriate conditions on $A$ and $x$.
 
 Usually the ground truth $\hat{x}$ is not exactly sparse but _compressible_, which means that only a few entries of $\hat{x}$ are significant. For many greedy algorithms, there exists theory that guarantees that stable recovery is possible for the sparse recovery by solving the regularized problem
->
-$$
-\min_{x \in \mathds{R}^N} \|x \|_1 \text{subject to} \|y-A\hat{x}\|\leq \eta
-$$
 
-for a given maximum measurement error $\eta$.
+>$$ \min_{x \in \mathds{R}^N} \|x \|_1 \text{subject to} \|y-A\hat{x}\|\leq \eta $$
+
+for a given error threshold $\eta$.
 
 The performance of the different greedy algorithms can be evaluated by running the included scripts, which give empirical results based on several Monte-Carlo simulations in which different parameters of the estimation problem are varied, respectively. Further, these empirical results can be used to plot the _phase diagrams_ of the respective algorithms, which are two-dimensional figures that visualize the empirical probability of successful recovery while varying two of the dimensions $s:=\|\hat{x}\|_0$, $N$ and $m$, respectively.
 
