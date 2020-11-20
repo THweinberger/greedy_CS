@@ -11,9 +11,15 @@ $$
 $$
 where $\|\cdot\|_0:=|\{i: x_i \neq 0\}|$ denotes the 'zero norm'.
 
-Although \eqref{eq:basisPur} is convex, one often wants to avoid to use the usual general-purpose solvers due to the typically large dimensions encountered in many applications. Eventhough there are more efficient, $\ell_1$-tailored solvers available, one therefore often employs so-called _greedy algorithms_ which typically take at most $\mathcal{O}(\|x\|_0)$ iterations to return an estimate of $\hat{x}$. Crucially, these algorithms exploit the fact that $A^\top Ax\approx x$ under appropriate conditions on $A$ and $x$.
+Although \eqref{eq:basisPur} is convex, one often wants to avoid to use the usual general-purpose solvers due to the typically large dimensions encountered in many applications. Eventhough there are more efficient, $\ell_1$-tailored solvers available, one therefore often employs so-called _greedy algorithms_ which typically take at most $\mathcal{O}(\|\hat{x}\|_0)$ iterations to return an estimate of $\hat{x}$. Crucially, these algorithms exploit the fact that $A^\top Ax\approx x$ under appropriate conditions on $A$ and $x$. 
 
-The performance of the different greedy algorithms can be evaluated by running the included scripts, which give empirical results based on several Monte-Carlo simulations in which different parameters of the estimation problem are varied, respectively. Further, these empirical results can be used to plot the _phase diagrams_ of the respective algorithms, which are two-dimensional figures that visualize the empirical probability of successful recovery while varying two of the dimensions $s$, $N$ and $m$, respectively.
+Usually the ground truth $\hat{x}$ is not exactly sparse but _compressible_, which means that only a few entries of $\hat{x}$ are significant. For many greedy algorithms, there exists theory that guarantees that stable recovery is possible for the sparse recovery by solving the regularized problem
+$$
+\min_{x \in \mathds{R}^N} \|x \|_1 \text{subject to} \|y-A\hat{x}\|\leq \eta
+$$
+for a given maximum measurement error $\eta$.
+
+The performance of the different greedy algorithms can be evaluated by running the included scripts, which give empirical results based on several Monte-Carlo simulations in which different parameters of the estimation problem are varied, respectively. Further, these empirical results can be used to plot the _phase diagrams_ of the respective algorithms, which are two-dimensional figures that visualize the empirical probability of successful recovery while varying two of the dimensions $s:=\|\hat{x}\|_0$, $N$ and $m$, respectively.
 
 ## List of algorithms
 
