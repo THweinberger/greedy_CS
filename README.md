@@ -1,28 +1,28 @@
 # greedy_CS
 This is a collection of greedy algorithms for sparse recovery.
 
-Greedy algorithms aim to solve the basis pursuit problem
-<br/><br/>
+In compressed sensing, one of the main objectives is to solve the basis pursuit problem
+>
 $$
 \min_{x \in \mathds{R}^N} \|x \|_1 \text{subject to} y = A\hat{x} \label{eq:basisPur}
 $$
-<br/><br/>
+
 given $y\in \mathds{R}^m$ and $A\in \mathds{R}^{m \times N}$ where $m \ll N$. Under appropriate conditions on the measurement matrix $A$ and the underlying data $\hat{x}$, this optimization is known to have the same optimum as the sparse recovery problem
-<br/><br/>
+>
 $$
 \min_{x \in \mathds{R}^N} \|x \|_0 \text{subject to} y = A\hat{x}
 $$
-<br/><br/>
-where $\|\cdot\|_0:=|\{i: x_i \neq 0\}|$ denotes the 'zero norm'.
 
-Although \eqref{eq:basisPur} is convex, one often wants to avoid to use the usual general-purpose solvers due to the typically large dimensions encountered in many applications. Eventhough there are more efficient, $\ell_1$-tailored solvers available, one therefore often employs so-called _greedy algorithms_ which typically take at most $\mathcal{O}(\|\hat{x}\|_0)$ iterations to return an estimate of $\hat{x}$. Crucially, these algorithms exploit the fact that $A^\top Ax\approx x$ under appropriate conditions on $A$ and $x$. 
+where $\|\cdot\|_0:=|\{i: x_i \neq 0\}|$ denotes the 'zero norm' of a vector.
+
+Although \eqref{eq:basisPur} is convex, one often wants to avoid to use the usual general-purpose solvers due to the typically large sizes of $m,N$ encountered in many applications. Even though there are more efficient, $\ell_1$-tailored solvers available, oftentimes one instead employs the so-called _greedy algorithms_ which typically take $\mathcal{O}(\|\hat{x}\|_0)$ iterations to return a good estimate of $\hat{x}$. Crucially, these algorithms exploit the fact that $A^\top Ax\approx x$ under appropriate conditions on $A$ and $x$.
 
 Usually the ground truth $\hat{x}$ is not exactly sparse but _compressible_, which means that only a few entries of $\hat{x}$ are significant. For many greedy algorithms, there exists theory that guarantees that stable recovery is possible for the sparse recovery by solving the regularized problem
-<br/><br/>
+>
 $$
 \min_{x \in \mathds{R}^N} \|x \|_1 \text{subject to} \|y-A\hat{x}\|\leq \eta
 $$
-<br/><br/>
+
 for a given maximum measurement error $\eta$.
 
 The performance of the different greedy algorithms can be evaluated by running the included scripts, which give empirical results based on several Monte-Carlo simulations in which different parameters of the estimation problem are varied, respectively. Further, these empirical results can be used to plot the _phase diagrams_ of the respective algorithms, which are two-dimensional figures that visualize the empirical probability of successful recovery while varying two of the dimensions $s:=\|\hat{x}\|_0$, $N$ and $m$, respectively.
@@ -30,14 +30,6 @@ The performance of the different greedy algorithms can be evaluated by running t
 ## List of algorithms
 
 * `ANM` (_Atomic Norm Minimization_), see [[C+14]](https://ieeexplore.ieee.org/abstract/document/6998075).
-* `EMAC` (_Enhanced Matrix Completion / Nuclear Norm Minimization_), see [[C2+14]](https://ieeexplore.ieee.org/document/6867345).
-* `ESPRIT` (_Atomic Norm Minimization_), see [[R+89]](https://ieeexplore.ieee.org/document/32276).
-* `MPM` (_Matrix Pencil Method_), see [[H+90]](https://ieeexplore.ieee.org/document/56027).
-* `MUSIC` (_Multiple emitter location and signal parameter estimation_), see [[S86]](https://ieeexplore.ieee.org/abstract/document/1143830).
-* `periodogram` (the classic periodogram estimator for continuous spectral estimation combined with an algorithm for finding local maxima), see e.g., [[S+05]](http://user.it.uu.se/~ps/SAS-new.pdf)
-* `rootMUSIC` (a variant of the MUSIC algorithm based on root finding), see [[R2+89]](https://ieeexplore.ieee.org/document/45540).
-* `structHMirls` (_Iteratively Least Squares for matrix completion_), see [[K+20]](https://arxiv.org/abs/2009.02905).
-* `TLSesprit` (a variant of ESPRIT based on total least squares), see [[B+91]](https://ieeexplore.ieee.org/document/80967).
 
 ## Examples and Usage
 The above listed algorithms can be used as stand-alone. For the correct usage, including the input and output of the individual algorithms, refer to the comments provided in the respective source codes.
