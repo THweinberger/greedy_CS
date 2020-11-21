@@ -1,6 +1,9 @@
-%% Version 1.2, 21.9.2018 0 AM
-%%
-clc;clear all;tic;
+%% This is a script generates phase transition diagrams which compare
+%% the empirical rate of successful recovery attained by various sparse
+%% recovery algorithms.
+
+%clc;clear all;
+tic;
 
 N = 50;
 SNRs = [Inf];
@@ -21,28 +24,28 @@ maxiters = -1;
 % Algorithm parameters:
 % algorithm = @OMP;
 % alg_parameters = {epsilon,maxiters};
-% 
+%
 % algorithm = @CoSaMP;
 % alg_parameters = {epsilon,maxiters};
-% 
+%
 % algorithm = @ROMP;
 % alg_parameters = {epsilon,maxiters};
 %
 algorithm = @StOMP;
 %% t: threshold parameter \in [2,3]. Smaller value promotes larger
 %% number of selected entries per iteration.
-t = 2; 
+t = 2;
 alg_parameters = {epsilon,maxiters,t};
-% 
+%
 % algorithm = @gOMP;
 % %% K: number of newly added entries per iteration.
 % %% For theoretical guarantees, K !<= min{s,m/s} (see Wang 2011)
-% K=3; 
+% K=3;
 % alg_parameters = {epsilon,maxiters,K};
 %
 % algorithm = @NIHT;
 % alg_parameters = {epsilon,maxiters};
-% 
+%
 % algorithm = @CSMPSP;
 % alg_parameters = {epsilon,maxiters};
 

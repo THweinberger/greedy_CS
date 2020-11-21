@@ -1,6 +1,8 @@
 function plot_PTD(datamatrix,N,m,s,filename,plot_title)
-%% Version 1.1, 19.9.2018 6PM
-%%
+%% This function plots the phase transition diagram for a datamatrix
+%% containing the respective empirical probabilities of successful
+%% recontruction.
+
 n_axis_ticks_x = 10;
 n_axis_ticks_y = 8;
 

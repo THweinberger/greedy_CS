@@ -1,4 +1,8 @@
 function A = Sample_measOp_CS(m,N,mode,varargin)
+%% Note: this code is adapted from Claudio M. Verdun of the Technical
+%% University Munich.
+%%
+
 %Sample_measOp_CS: This function samples an (m x N) measurement operator A
 %(corresponding to a compressed sensing procedure) according to the random
 %model specified by "mode".
@@ -31,7 +35,7 @@ if strcmp(mode,'Gaussian')
     else
         error('Specify field: Either "complex" or "real"');
     end
-    
+
 elseif strcmp(mode,'Fourier')
     DFT = dftmtx(N);
     Omega= randperm(N,m);
@@ -41,11 +45,11 @@ elseif strcmp(mode,'Radar') %'Radar_Fourier'
     Omega= randperm(N,m);
     A = ((randi(2,m,1)-1.5).*2.*rand(m,1).*100+0.5.*ones(m,1)).*DFT(Omega,:)/sqrt(m);
 %     for j=1:N
-%        A(:,j)=A(:,j)./norm(A(:,j)).*sqrt(m); 
+%        A(:,j)=A(:,j)./norm(A(:,j)).*sqrt(m);
 %     end
     %DFT(Omega,:).*((randi(2,1,N)-1.5).*2.*rand(1,N).*10+0.5.*ones(1,N));
     %DFT(Omega,:).*randn(1,N).^2;
-    
+
 elseif strcmp(mode,'Circulant')
     DFT = dftmtx(N);
     if strcmp(field,'real')
@@ -59,23 +63,23 @@ elseif strcmp(mode,'Circulant')
     Circ=toeplitz([gHat(1) fliplr(gHat(2:end))'], gHat.');
     Omega= randperm(N,m);
     A = Circ(Omega,:);
-    
+
 elseif strcmp(mode,'Psi_alpha')
     alpha = varargin{2};
     fun = @(x) abs(x).^(4/alpha).*1./(sqrt(2*pi)).*exp(-(x).^2./2);
     q = integral(fun,-Inf,+Inf);
     if strcmp(field,'real')
         A = randn(m,N);
-%         A = sign(A).*abs(A).^(2/alpha);  
+%         A = sign(A).*abs(A).^(2/alpha);
         A = (sign(A).*abs(A).^(2/alpha)) ./sqrt(q);%./(4/alpha).^(2/alpha)
-        %./(sqrt(gamma(1/alpha)/gamma(3/alpha))); 
+        %./(sqrt(gamma(1/alpha)/gamma(3/alpha)));
     elseif strcmp(field,'complex')
         A1=randn(m,N); A2=randn(m,N);
         A = sign(A1).*abs(A1).^(2/alpha)./sqrt(2*q) + 1i.*sign(A2).*abs(A2).^(2/alpha)./sqrt(2*q);
     else
         error('Specify field: Either "complex" or "real"');
     end
-    
+
 elseif strcmp(mode,'Student')
     k     = varargin{2};
     if strcmp(field,'real')
@@ -98,10 +102,10 @@ elseif strcmp(mode,'DCT')
     DCT = dctmtx(N);
     Omega= randperm(N,m);
     A = DCT(Omega,:)/sqrt(m);
-        
-    
+
+
 else
     error('Please specify "mode" as one of the following: Gaussian, Fourier, Circulant, Psi_alpha, Student.');
 end
-    
+
 end

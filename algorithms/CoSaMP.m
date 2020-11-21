@@ -1,5 +1,20 @@
 function x_hat=CoSaMP(y,A,s,parameters)
+%% COmpressive SAmpling Matching Pursuit algorithm for sparse recovery from
+%% incomplete noisy measurements y = Ax + e such that the ground truth data
+%% vector x is s-sparse. See Needell and Tropp 2009.
 %%
+%% Inputs:
+%% y: measurement vector
+%% A: measurement matrix
+%% s: sparsity of the data vector
+%% parameters: additional parameters:
+%%                {1}: epsilon: error threshold: stop iterations if below
+%%                {2}: maxiters: stop iterations if #iterions above
+%%
+%% Output:
+%% x_hat: estimate of the sparse underlying datavector x with guaranteed
+%%          sparsity $\|x_hat\|_0 \leq s$
+
 err = inf;
 n = 0;
 [m,N] = size(A);
@@ -12,7 +27,7 @@ maxiters = parameters{2};
 
 while err > epsilon && n<maxiters
     n=n+1;
-    
+
 % Identification step
 [~,ind]=sort(abs(A'*res),'descend');
 

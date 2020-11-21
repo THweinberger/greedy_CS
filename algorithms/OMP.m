@@ -1,6 +1,20 @@
 function x_hat=OMP(y,A,s,parameters)
-%% Version 1.1, 19.9.2018 6PM
+%% Orthogonal Matching Pursuit algorithm for sparse recovery from incomplete
+%% measurements y = Ax + e such that the ground truth data vector x is s-sparse.
+%% See Tropp and Gilbert 2007
 %%
+%% Inputs:
+%% y: m-dimensional complex measurement vector
+%% A: m x N-dimensional complexmeasurement matrix
+%% s: sparsity of the data vector x
+%% parameters: additional parameters:
+%%                {1}: epsilon: error threshold: stop iterations if below
+%%                {2}: maxiters: stop iterations if #iterions above
+%%
+%% Output:
+%% x_hat: estimate of the sparse underlying datavector x with guaranteed
+%%          sparsity $\|x_hat\|_0 \leq s$
+
 err = inf;
 S = [];
 n = 0;
@@ -13,10 +27,10 @@ maxiters = parameters{2};
 
 while err > epsilon && n<maxiters
     n=n+1;
-    
+
 % find column with maximum correlation
     [~,ind]=max(abs(A'*res));
-    
+
 S = [S;ind];
 
 % Perform Least Squares based on QR decomposition

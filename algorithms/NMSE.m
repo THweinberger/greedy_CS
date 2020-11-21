@@ -1,14 +1,12 @@
 function [dataarray,s_m] = NMSE(N,s,SNR_db,n_iters,algorithm,type_matrix,type_x,varargin)
-%% Version 1.2, 21.9.2018 0 AM
-%%
-% This script generates a phase transition diagram which shows the empirical
-% probabilities of successful recovery of a sparse signal.
-%
-%%
+%% This function generates a phase transition diagram from Monte-Carlo iterations.
+%% This gives a visualization for the empirical probabilities of successful
+%% recovery of randomly drawn sparse signals by a given algorithm.
+
 % Number of datapoints in the 1D parameter space
 n_datapoints_m = 20;
 
-%%
+
 if nargin >= 8
     field = varargin{1};
     alg_inputs = varargin{2};
@@ -20,6 +18,7 @@ m = round(s./s_m);
 
 SNR = 10.^(SNR_db/10);
 dataarray = zeros(n_datapoints_m,1);
+
 %% Monte Carlo simulation
 tic;
 for ii = 1:n_datapoints_m
@@ -29,7 +28,7 @@ for ii = 1:n_datapoints_m
     x = generate_x(N,s,type_x,field);
 
     if strcmp(field,'complex')
-        noise = randn(m(ii),1) + 1i*randn(m(ii),1);   
+        noise = randn(m(ii),1) + 1i*randn(m(ii),1);
     elseif strcmp(field,'real')
         noise = rand(m(ii),1);
     else
@@ -37,7 +36,7 @@ for ii = 1:n_datapoints_m
     end
 
     noise = noise/(norm(noise)*sqrt(SNR))*norm(x);
-    A = Sample_measOp_CS(m(ii),N,type_matrix,matrix_parameters{:});       
+    A = Sample_measOp_CS(m(ii),N,type_matrix,matrix_parameters{:});
     y = A*x + noise;
 
 

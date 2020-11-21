@@ -1,6 +1,21 @@
 function x_hat=CSMPSP(y,A,s,parameters)
-%% Version 1.1, 19.9.2018 6PM
+%% A hyprid between the COmpressive SAmpling Matching Pursuit algorithm and
+%% Subspace Pursuit for sparse recovery from incomplete noisy measurements
+%% y = Ax + e such that the ground truth data vector x is s-sparse.
+%% See Blanchard and Tanner et al. 2015.
 %%
+%% Inputs:
+%% y: measurement vector
+%% A: measurement matrix
+%% s: sparsity of the data vector
+%% parameters: additional parameters:
+%%                {1}: epsilon: error threshold: stop iterations if below
+%%                {2}: maxiters: stop iterations if #iterions above
+%%
+%% Output:
+%% x_hat: estimate of the sparse underlying datavector x with guaranteed
+%%          sparsity $\|x_hat\|_0 \leq s$
+
 err = inf;
 res = y;
 n = 0;
@@ -13,7 +28,7 @@ maxiters = parameters{2};
 
 while err > epsilon && n<maxiters
     n=n+1;
-    
+
 % find 2s columns with maximum correlation
 [~,ind]=sort(abs(A'*res),'descend');
 S = [supp_x;ind(1:min([N,s]))];

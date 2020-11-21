@@ -1,6 +1,24 @@
 function x_hat=gOMP(y,A,s,parameters)
-%% Version 1.1, 19.9.2018 6PM
-%% Note: for theoretical guarantees, K !<= min{s,m/s} (see Wang 2011)
+%% Generalized Orthogonal Matching Pursuit algorithm for sparse recovery from
+%% incomplete noisy measurements y = Ax + e such that the ground truth data
+%% vector x is s-sparse.
+%% See Wang, Kwon and Shim 2012.
+%%
+%% Inputs:
+%% y: measurement vector
+%% A: measurement matrix
+%% s: sparsity of the data vector
+%% parameters: additional parameters:
+%%                {1}: epsilon: error threshold: stop iterations if below
+%%                {2}: maxiters: stop iterations if #iterions above
+%%                {3}: hyperparameter K determines the number of newly added
+%%                      entries per iteration
+%% Note: for good theoretical guarantees, set K <= \min{s,m/s} (see Wang 2011)
+%%
+%% Output:
+%% x_hat: estimate of the sparse underlying datavector x with guaranteed
+%%          sparsity $\|x_hat\|_0 \leq s$
+
 err = inf;
 S = [];
 n = 0;
@@ -17,10 +35,10 @@ K = parameters{3};
 
 while err > epsilon && n<maxiters
     n=n+1;
-    
+
 % find columns with maximum correlation
     [~,ind]=sort(abs(A'*res),'descend');
-    
+
 S = [S,ind(1:K)'];
 
 % Perform Least Squares
