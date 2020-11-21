@@ -40,7 +40,7 @@ To perform the Monte-Carlo simulations, run the respective files with the prefix
 
 ## About this repository
 ##### Developers:
-* The code of Sample_measOp_CS.m is adapted from Claudio M. Verdun, Technical University Munich.
+* The code of 'Sample_measOp_CS.m' is adapted from Claudio M. Verdun, Technical University Munich.
 * The remaining code is written by Thomas Weinberger (<t.weinberger@tum.de>).
 
 If you have any problems or questions, please contact me via e-mail.
