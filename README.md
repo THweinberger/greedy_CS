@@ -25,7 +25,7 @@ The performance of the different greedy algorithms can be evaluated by running t
 
 ## List of algorithms
 
-* `COSAMP` (_COmpressive SAmpling Matching Pursuit _), see [[N+09]](https://www.sciencedirect.com/science/article/pii/S1063520308000638).
+* `COSAMP` (_COmpressive SAmpling Matching Pursuit_), see [[N+09]](https://www.sciencedirect.com/science/article/pii/S1063520308000638).
 * `CSMPSP` (A hybrid between COSAMP and Subspace Pursuit), see [[B+15]](https://onlinelibrary.wiley.com/doi/abs/10.1002/nla.1948).
 * `GOMP` (_Generalized Orthogonal Matching Pursuit_), see [[W+12]](https://ieeexplore.ieee.org/document/6302206).
 * `NIHT` (_Normalized Iterative Hard Thresholding_), see [[B+10]](https://ieeexplore.ieee.org/document/5419091).
