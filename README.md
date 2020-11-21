@@ -25,18 +25,16 @@ The performance of the different greedy algorithms can be evaluated by running t
 
 ## List of algorithms
 
-* `ANM` (_Atomic Norm Minimization_), see [[C+14]](https://ieeexplore.ieee.org/abstract/document/6998075).
-* `COSAMP` (_ _), see .
-* `CSMPSP` (_ _), see .
-* `GOMP` (_ _), see .
-* `NIHT` (_ _), see .
-* `OMP` (_ _), see .
-* `ROMP` (_ _), see .
-* `STOMP` (_ _), see .
-
+* `COSAMP` (_COmpressive SAmpling Matching Pursuit _), see [[N+09]](https://www.sciencedirect.com/science/article/pii/S1063520308000638).
+* `CSMPSP` (A hybrid between COSAMP and Subspace Pursuit), see [[B+15]](https://onlinelibrary.wiley.com/doi/abs/10.1002/nla.1948).
+* `GOMP` (_Generalized Orthogonal Matching Pursuit_), see [[W+12]](https://ieeexplore.ieee.org/document/6302206).
+* `NIHT` (_Normalized Iterative Hard Thresholding_), see [[B+10]](https://ieeexplore.ieee.org/document/5419091).
+* `OMP` (_Orthogonal Matching Pursuit_), see [[T+07]](https://ieeexplore.ieee.org/document/4385788).
+* `ROMP` (_Regularized Orthogonal Matching Pursuit_), see [[N+09]](https://doi.org/10.1007/s10208-008-9031-3).
+* `STOMP` (_STagewise Orthogonal Matching Pursuit_), see [[D+12]](https://ieeexplore.ieee.org/document/6145475).
 
 ## Examples and Usage
-The above listed algorithms can be used as stand-alone. For the correct usage, including the input and output of the individual algorithms, refer to the comments provided in the respective source codes.
+The above listed algorithms can be used as stand-alone. For the correct usage, including the assignment of the inputs and outputs of the individual algorithms, refer to the comments provided in the respective source codes.
 
 To perform the Monte-Carlo simulations, run the respective files with the prefix 'script'. Additional information is provided in the source codes.
 
@@ -47,12 +45,10 @@ To perform the Monte-Carlo simulations, run the respective files with the prefix
 If you have any problems or questions, please contact me via e-mail.
 
 ## References
- - [[S86]](https://ieeexplore.ieee.org/abstract/document/1143830) R. Schmidt, "Multiple emitter location and signal parameter estimation," in IEEE Transactions on Antennas and Propagation, vol. 34, no. 3, pp. 276-280, March 1986, doi: 10.1109/TAP.1986.1143830.
- - [[R+89]](https://ieeexplore.ieee.org/document/32276) R. Roy and T. Kailath, "ESPRIT-estimation of signal parameters via rotational invariance techniques," in IEEE Transactions on Acoustics, Speech, and Signal Processing, vol. 37, no. 7, pp. 984-995, July 1989, doi: 10.1109/29.32276.
- - [[H+90]](https://ieeexplore.ieee.org/document/56027) Y. Hua and T. K. Sarkar, "Matrix pencil method for estimating parameters of exponentially damped/undamped sinusoids in noise," in IEEE Transactions on Acoustics, Speech, and Signal Processing, vol. 38, no. 5, pp. 814-824, May 1990, doi: 10.1109/29.56027.
- - [[C+14]](https://ieeexplore.ieee.org/abstract/document/6998075) Chi, Yuejie, and Yuxin Chen. "Compressive two-dimensional harmonic retrieval via atomic norm minimization." IEEE Transactions on Signal Processing 63.4 (2014): 1030-1042.
- - [[C2+14]](https://ieeexplore.ieee.org/document/6867345) Y. Chen and Y. Chi, "Robust Spectral Compressed Sensing via Structured Matrix Completion," in IEEE Transactions on Information Theory, vol. 60, no. 10, pp. 6576-6601, Oct. 2014, doi: 10.1109/TIT.2014.2343623.
- - [[S+05]](http://user.it.uu.se/~ps/SAS-new.pdf) Stoica, Petre, and Randolph L. Moses. "Spectral analysis of signals." (2005).
- - [[R2+89]](https://ieeexplore.ieee.org/document/45540) Rao, Bhaskar D., and KV Sl Hari. "Performance analysis of root-MUSIC." IEEE Transactions on Acoustics, Speech, and Signal Processing 37.12 (1989): 1939-1949.
- - [[K+20]](https://arxiv.org/abs/2009.02905) Kümmerle, Christian, and Claudio M. Verdun. "Escaping Saddle Points in Ill-Conditioned Matrix Completion with a Scalable Second Order Method." arXiv preprint arXiv:2009.02905 (2020).
- - [[B+91]](https://ieeexplore.ieee.org/document/80967) B. Ottersten, M. Viberg and T. Kailath, "Performance analysis of the total least squares ESPRIT algorithm," in IEEE Transactions on Signal Processing, vol. 39, no. 5, pp. 1122-1135, May 1991, doi: 10.1109/78.80967.
+ - [[N+09]](https://www.sciencedirect.com/science/article/pii/S1063520308000638) Needell, Deanna, and Joel A. Tropp. "CoSaMP: Iterative signal recovery from incomplete and inaccurate samples." Applied and computational harmonic analysis 26.3 (2009): 301-321.
+ - [[B+15]](https://onlinelibrary.wiley.com/doi/abs/10.1002/nla.1948) Blanchard, Jeffrey D., and Jared Tanner. "Performance comparisons of greedy algorithms in compressed sensing." Numerical Linear Algebra with Applications 22.2 (2015): 254-282.
+ - [[W+12]](https://ieeexplore.ieee.org/document/6302206) J. Wang, S. Kwon and B. Shim, "Generalized Orthogonal Matching Pursuit," in IEEE Transactions on Signal Processing, vol. 60, no. 12, pp. 6202-6216, Dec. 2012, doi: 10.1109/TSP.2012.2218810.
+ - [[B+10]](https://ieeexplore.ieee.org/document/5419091) T. Blumensath and M. E. Davies, "Normalized Iterative Hard Thresholding: Guaranteed Stability and Performance," in IEEE Journal of Selected Topics in Signal Processing, vol. 4, no. 2, pp. 298-309, April 2010, doi: 10.1109/JSTSP.2010.2042411.
+  - [[T+07]](https://ieeexplore.ieee.org/document/4385788) J. A. Tropp and A. C. Gilbert, "Signal Recovery From Random Measurements Via Orthogonal Matching Pursuit," in IEEE Transactions on Information Theory, vol. 53, no. 12, pp. 4655-4666, Dec. 2007, doi: 10.1109/TIT.2007.909108.
+  - [[N+09]](https://doi.org/10.1007/s10208-008-9031-3) Needell, D., Vershynin, R. Uniform Uncertainty Principle and Signal Recovery via Regularized Orthogonal Matching Pursuit. Found Comput Math 9, 317–334 (2009).
+  - [[D+12]](https://ieeexplore.ieee.org/document/6145475) D. L. Donoho, Y. Tsaig, I. Drori and J. Starck, "Sparse Solution of Underdetermined Systems of Linear Equations by Stagewise Orthogonal Matching Pursuit," in IEEE Transactions on Information Theory, vol. 58, no. 2, pp. 1094-1121, Feb. 2012, doi: 10.1109/TIT.2011.2173241.
