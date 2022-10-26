@@ -3,13 +3,13 @@ This repository offers a collection of greedy algorithms for sparse recovery and
 
 In compressed sensing, one wants to find the solution to the sparse recovery problem
 
->$$ \min_{x \in \mathds{R}^N} \|x \|_0 \text{subject to} y = A\hat{x} \label{eq:sparseRec} $$
+>$$ \min_{x \in \mathbb{R}^N} \|x \|_0 \text{subject to} y = A\hat{x} \label{eq:sparseRec} $$
 
-given $y\in \mathds{R}^m$ and $A\in \mathds{R}^{m \times N}$ where $m \ll N$ and where $\|\cdot\|_0:=|\{i: x_i \neq 0\}|$ denotes the 'zero norm' of a vector.
+given $y\in \mathds{R}^m$ and $A\in \mathbb{R}^{m \times N}$ where $m \ll N$ and where $\|\cdot\|_0:=|\{i: x_i \neq 0\}|$ denotes the 'zero norm' of a vector.
 
 As \eqref{sparseRec} is a combinatorially hard problem, one typically instead solves the convex relaxation, known as the _basis pursuit_,
 
->$$ \min_{x \in \mathds{R}^N} \|x \|_1 \text{subject to} y = A\hat{x}. \label{eq:basisPur} $$
+>$$ \min_{x \in \mathbb{R}^N} \|x \|_1 \text{subject to} y = A\hat{x}. \label{eq:basisPur} $$
 
 Under appropriate conditions on the measurement matrix $A$ and the underlying data $\hat{x}$, it is well known that \label{eq:basisPur} has the same unique solution as \label{eq:sparseRec}.
 
@@ -17,7 +17,7 @@ Although \eqref{eq:basisPur} is convex, one often wants to avoid to use the usua
 
 Usually the ground truth $\hat{x}$ is not exactly sparse but _compressible_, which means that only a few entries of $\hat{x}$ are significant. For many greedy algorithms, there exist results that guarantee that stable recovery is possible when solving the regularized problem
 
->$$ \min_{x \in \mathds{R}^N} \|x \|_1 \text{subject to} \|y-A\hat{x}\|\leq \eta $$
+>$$ \min_{x \in \mathbb{R}^N} \|x \|_1 \text{subject to} \|y-A\hat{x}\|\leq \eta $$
 
 for a given error threshold $\eta$.
 
