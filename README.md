@@ -1,5 +1,5 @@
 # greedy_CS
-This repository offers a collection of greedy algorithms for sparse recovery and several scripts to evaluate their empirical performance.
+This repository offers a collection of **greedy algorithms for sparse recovery** and several scripts to evaluate their empirical performance.
 
 In compressed sensing, one wants to find the solution to the sparse recovery problem
 
@@ -41,7 +41,7 @@ To perform the Monte-Carlo simulations, run the respective files with the prefix
 ## About this repository
 ##### Developers:
 * The code of 'Sample_measOp_CS.m' is adapted from Claudio M. Verdun, Technical University Munich.
-* The remaining code is written by Thomas Weinberger (<t.weinberger@tum.de>).
+* The remaining code is written by Thomas Weinberger (<t.weinberger@tuta.com>).
 
 If you have any problems or questions, please contact me via e-mail.
 
