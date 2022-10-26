@@ -11,7 +11,7 @@ As \eqref{sparseRec} is a combinatorially hard problem, one typically instead so
 
 >$$ \min_{x \in \mathbb{R}^N} \|x \|_1 ~~ \text{subject to} ~~ y = A\hat{x}. \label{eq:basisPur} $$
 
-Under appropriate conditions on the measurement matrix $A$ and the underlying data $\hat{x}$, it is well known that \label{eq:basisPur} has the same unique solution as \label{eq:sparseRec}.
+Under appropriate conditions on the measurement matrix $A$ and the underlying data $\hat{x}$, it is well known that \eqref{eq:basisPur} has the same unique solution as \eqref{eq:sparseRec}.
 
 Although \eqref{eq:basisPur} is convex, one often wants to avoid to use the usual general-purpose solvers due to the typically large sizes of $m,N$ encountered in many applications. Even though there are more efficient, $\ell_1$-tailored solvers available, oftentimes one instead employs the so-called _greedy algorithms_ which typically take $\mathcal{O}(\|\hat{x}\|_0)$ iterations to return a good estimate of $\hat{x}$. Crucially, these algorithms exploit the fact that $A^\top Ax\approx x$ under appropriate conditions on $A$ and $x$.
 
