@@ -5,7 +5,7 @@ In compressed sensing, one wants to find the solution to the sparse recovery pro
 
 >$$ \min_{x \in \mathbb{R}^N} \|x \|_0 \text{subject to} y = A\hat{x} \label{eq:sparseRec} $$
 
-given $y\in \mathds{R}^m$ and $A\in \mathbb{R}^{m \times N}$ where $m \ll N$ and where $\|\cdot\|_0:=|\{i: x_i \neq 0\}|$ denotes the 'zero norm' of a vector.
+given $y\in \mathbb{R}^m$ and $A\in \mathbb{R}^{m \times N}$ where $m \ll N$ and where $\|\cdot\|_0:=|\{i: x_i \neq 0\}|$ denotes the 'zero norm' of a vector.
 
 As \eqref{sparseRec} is a combinatorially hard problem, one typically instead solves the convex relaxation, known as the _basis pursuit_,
 
